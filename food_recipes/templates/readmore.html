@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+
+{% block title %}Recipe-Explain{% endblock title %}
+
+
+{% block content %}
+
+
+<div class='container-fluid   p-0'>
+    <div class='container p-0 row_div'>
+        <div class='row  w-100 m-0 mt-5  d-flex justify-content-center align-items-center'>
+            <h1 class='col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12'>{{specific_data.recipe_name}}</h1>
+        </div>
+        <div class='row  w-100 m-0  d-flex justify-content-center align-items-center'>
+            <div class=" col-xxl-5 col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5 col-xs-5 mt-4 mb-2 border overflow-hidden p-0 img_Div ">
+                <img src='/media/{{specific_data.recipe_image}}'>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+
+<div class='container-fluid   p-0 mb-5'>
+    <div class='container p-0'>
+        <div class='row w-100 m-0 mt-2  '>
+            <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 col-xs-12 ">
+                
+                <h5 class='text-light'>Let's Start Cooking !</h5><li class='text-light'>{{specific_data.recipe_dscription}}</li>
+            </div>
+           
+        </div>
+       
+    </div>
+</div>
+          
+           
+        
+      
+
+
+{% endblock content %}
+

@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+
+{% block title %}Update-Product{% endblock title %}
+
+
+{% block content %}
+
+{% if flag %}
+<div class='container-fluid d-flex justify-content-center align-items-center  update_product_container-fluid p-0'>
+  
+    <div class='container   border '>
+        <div class='row   border  d-flex justify-content-center align-items-center flex-column'>
+            <div class='col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 col-xs-8 pb-2  border'>
+                <h1 class='text-light text-center mb-3 border-bottom py-3'>Update___Recipe</h1>
+            <form method='post' enctype='multipart/form-data'>
+                {% csrf_token %}
+                
+              
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label text-light fw-bold">Recipe Name</label>
+                  <input type="text" class="form-control" required name='recipe_name' value='{{queryset.recipe_name}}' id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label text-light fw-bold">Recipe Description</label>
+                  <textarea class='form-control' rows="10" cols="50" name='recipe_description' required >{{queryset.recipe_dscription}}</textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label text-light fw-bold">Recipe Image</label>
+                  <input type="file" class="form-control" name='recipe_image' id="exampleInputPassword1">
+                </div>
+            
+             
+                <button type="submit" class="btn btn-success text-light fw-bold">UPDATE</button>
+                
+              </form>
+            </div>
+          
+            
+        </div>
+      
+    </div>
+</div>
+{% else %}
+    <h1 class='text-light'>Please Login OR Signup !</h1>
+    <h2 class='ps-2'><a class='text-primary' href='/'>Go Back</a></h2>
+{% endif %}
+
+{% endblock content %}
+

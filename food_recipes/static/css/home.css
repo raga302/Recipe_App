@@ -1,0 +1,113 @@
+.card{
+   background-color: transparent;
+   padding: 5px 5px;
+   transition: all 0.5s ease;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    box-shadow: #e6e1d9 0px 3px 8px;
+}
+
+.card h5{
+    color:#fff;
+}
+
+.card img{
+    width: 100% !important;
+    height: 25vh;
+    object-fit: center;
+    border-radius: 50%;
+}
+
+.container-div h1{
+    border-bottom: 1px solid #fff;
+    color: #ecc077;
+}
+
+.heading_div div h1{
+    color: #fbcc83;
+    font-size: 3.5rem;
+}
+
+.heading_div div p{
+    color: #f0ebe4;
+    
+}
+
+.heading_div div img{
+    width: 100% !important;
+   
+}
+
+
+@media (max-width: 992px) {
+    .container-div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column !important;
+        
+    }
+    
+}
+
+@media only screen and (max-width: 768px) {
+    .heading_div div h1{
+        font-size: 2rem;
+    }
+    .container-div h1{
+        font-size: 1.5rem;
+    }
+   
+}
+
+
+@media only screen and (max-width: 568px) {
+    .container-div .row{
+        display: flex !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    .card img{
+       
+        height: 50vh !important;
+        
+    }
+    .container-div h1{
+        font-size: 5vw !important;
+    }
+   
+}
+
+@media only screen and (max-width: 468px) {
+    .container-div h1{
+        font-size: 5vw !important;
+    }
+    .heading_div div p{
+        font-size: 3vw !important;
+        font-weight: 400 !important;
+    }
+    .card img{
+        height: 250px !important;  
+    }
+   
+}
+
+
+@media only screen and (max-width: 378px) {
+    .heading_div div h1{
+        font-size: 8vw !important;
+    }
+    .heading_div div p{
+        font-size: 3vw !important;
+        font-weight: 500 !important;
+    }
+    .container-div h1{
+        width: 90% !important;
+        font-size: 5.8vw !important;
+    }
+}
+
+
+

@@ -1,0 +1,5 @@
+.update_product_container-fluid{
+    width: 100%;
+    height: calc(100vh - 56px);
+    background-color: rgba(122, 61, 150, 0.568);
+}

@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "food_recipes_app/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "food_recipes_app/wsgi.py"
+      }
+    ]
+}

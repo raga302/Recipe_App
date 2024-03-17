@@ -1,0 +1,11 @@
+.login-main-div{
+   
+    width: 100%;
+    height: 100vh;
+}
+
+.login-main-div .message_box h4{
+    height: 2rem;
+    
+    /*border: none !important;*/
+}

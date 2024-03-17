@@ -1,0 +1,114 @@
+{% extends "index.html" %}
+
+{% block title %}Admin-Panel{% endblock title %}
+
+
+{% block content %}
+
+{% if admin_panel_auth %}
+
+<div class='container-fluid admin-main-div   p-0'>
+  
+    <div class='container h-100  border d-flex justify-content-center align-items-center flex-column'>
+        <div class='row w-100 h-100 border mt-5 d-flex justify-content-center align-items-center flex-column'>
+            <div class='col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8 col-xs-8 pb-2  border'>
+                <h1 class='text-dark text-center mb-3 border-bottom py-3'>Admin_Panel</h1>
+            <form method='post' enctype='multipart/form-data'>
+                {% csrf_token %}
+                
+              
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label text-dark fw-bold">Recipe Name</label>
+                  <input type="text" class="form-control" required name='recipe_name' id="exampleInputEmail1" aria-describedby="emailHelp">
+                
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label text-dark fw-bold">Recipe Description</label>
+                  <textarea class='form-control' name='recipe_description' required></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label text-dark fw-bold">Recipe Image</label>
+                  <input type="file" class="form-control" required name='recipe_image' id="exampleInputPassword1">
+                </div>
+
+             
+                <button type="submit" class="btn btn-success text-light fw-bold">Add Product</button>
+                
+              </form>
+            </div>
+          
+            
+        </div>
+        <div class='row col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12  d-flex justify-content-center align-items-center mt-5'>
+
+            <div class='col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col-xs-3 border p-0'>
+            <h4 class='w-100 h-100 text-center fw-bold py-2 px-2'>Recipe Name</h4>
+            </div>
+
+            <div class='col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col-xs-3 border p-0'>
+            <h4 class='w-100 h-100 text-center fw-bold py-2  px-2'>Recipe Des..</h4>
+        </div>
+
+        <div class='col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col-xs-3 border p-0'>
+                <h4 class='w-100 h-100 text-center fw-bold py-2 px-2'>Recipe Image</h4>
+            </div>
+
+            <div class='col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col-xs-3 border p-0'>
+                <h4 class='w-100 h-100 text-center fw-bold py-2 px-2'>Edit / Delete</h4>
+            </div>
+            <div class='col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12  pb-2 mt-3 d-flex flex-column  '>
+                
+                {% for recipes in all_Data %}   
+                <div class='col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12 py-3 gap-3 text-center  d-flex flex-row justify-content-center align-items-center w-100  border-bottom'>
+                    
+                <div class=' col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col-xs-3 ps-3  h-100 d-flex justify-content-center align-items-center '>
+                <h3 class=''>{{recipes.recipe_name}}</h3>
+                </div>
+
+                <div class=' col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col-xs-3 '>
+                <textarea class='form-control  ps-2' readonly name='recipe_description' rows="10" cols="50">{{recipes.recipe_dscription}}</textarea>
+                </div>
+
+                <div class='h-100 admin-mini-img-div col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 col-xs-3  d-flex justify-content-center align-items-center  border'>
+                <img class=' rounded border ' src='/media/{{recipes.recipe_image}}/' />
+                </div>
+                
+                <div class='col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-3 col-3 col-xs-3  h-100 d-flex justify-content-center align-items-center flex-column edit_delete_btn'>
+                    <a  class='btn btn-success fw-bold col-xxl-7 col-xl-7 col-lg-7 col-md-8 col-sm-8 col-10 col-xs-8 fs-3 mb-3 px-0' href='http://127.0.0.1:8000/edit_recipe/{{recipes.id}}'>Edit</a>
+                    <a  class='btn btn-danger fw-bold col-xxl-7 col-xl-7 col-lg-8 col-md-8 col-sm-8 col-10 col-xs-8 fs-3 px-0' href='http://127.0.0.1:8000/admin-panel/{{recipes.id}}'>Delete</a>
+                </div>
+                
+            </div>
+                 {% endfor %} 
+            </div>
+           <!-- {% for recipes in all_Data %}                                                                                                        
+                {{recipes.recipe_name}}
+                {{recipes.recipe_dscription}}
+                <img src='/media/{{recipes.recipe_image}}/'/>
+                
+                {{recipes.login_or_signup_email}}
+            {% endfor %} 
+-->
+            </div>
+    </div>
+</div>
+
+
+{% else %}
+<div class='container-fluid   '>
+  
+    <div class='container h-100  d-flex justify-content-center align-items-center '>
+        <div class='row h-100 col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12   mt-5 d-flex justify-content-center align-items-center flex-column'>
+            <div class=' col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 col-xs-12 rounded bg-light'>
+            <h1 class='text-dark text-center '>Please Login OR Signup !</h1>
+            <h2 class='ps-2 text-center'><a class='text-primary' href='/'>Go Back</a></h2>
+            </div>
+        </div>
+    </div> 
+</div>    
+    
+{% endif %}
+{% endblock content %}
+

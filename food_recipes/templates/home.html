@@ -1,0 +1,57 @@
+{% extends "index.html" %}
+
+{% block title %}Home{% endblock title %}
+
+
+{% block content %}
+
+
+<div class='container-fluid   p-0'>
+    <div class='container p-0  w-100'>
+        <div class='row w-100 m-0 mt-5'>
+
+            <div class=" col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-xs-12 d-flex heading_div  w-100">
+
+                <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6 mt-4 d-flex flex-column justify-content-center ">
+                    <h1 class='headingkah1'>I'm in a committed relationship with food.</h1>
+                    <p class=' fw-bold'>Recognizing that food is more than sustenance it is an expression of culture, heritage, and creativity.</p>
+                </div>
+                <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 col-xs-6 mt-4  text-end">
+                    <img src='\static\images\Big_Tasty_Regular_Meal638088534168315961.png' class=' w-100 '/>
+                </div>
+
+            </div>
+
+        </div>
+       
+    </div>
+</div>
+
+
+<div class='container-fluid   p-0'>
+    <div class='container container-div p-0  '>
+        <div class='w-100 d-flex justify-content-center mt-5'>
+            <h1 class='w-75  text-center pb-2 rounded'>Simple & Delicious Food Recipes</h1>
+           </div>
+        <div class='row w-100 m-0 mt-5'>
+            {% for all_data in all_data %}
+            <div class=" col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-sm-6 col-10 col-xs-12  d-flex justify-content-center  mb-5" id='{{all_data.id}}'>
+                <div class='card col-xxl-11 col-xl-11 col-lg-11 col-md-11 col-sm-11 col-11 col-xs-3'>
+                <img src="/media/{{all_data.recipe_image}}" class="card-img-top w-100" alt="..."  >
+                <div class="card-body">
+                  <h5 class="card-text">{{all_data.recipe_name}}</h5>
+                </div>
+                <div class='text-center px-2'>
+                <a class=' fw-bold text-primary' href='http://127.0.0.1:8000/readmore/{{all_data.id}}/' target='_blank'>See Recipe</a>
+                </div>
+            </div>
+              </div>
+              {% endfor %}
+        </div>
+       
+    </div>
+</div>
+
+
+{% endblock content %}
+

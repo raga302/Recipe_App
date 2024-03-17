@@ -1,0 +1,9 @@
+.signup-main-div{
+   
+    width: 100%;
+    height: 100vh;
+}
+
+.signup-main-div .message_box{
+    height: 5px !important;
+}

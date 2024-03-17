@@ -1,0 +1,12 @@
+.nav-item a{
+    transition: all 0.5s ease;
+}
+
+
+
+.nav-item a:hover{
+    color: rgb(75, 255, 180) !important;
+    transform: scale(1.2);
+    text-decoration: underline;
+    
+}
