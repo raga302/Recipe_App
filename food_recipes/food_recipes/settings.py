@@ -76,15 +76,23 @@ WSGI_APPLICATION = 'food_recipes.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'URL': 'postgresql://postgres:AxwMnRftocNhBzpandSnGJGddPfFsGKo@monorail.proxy.rlwy.net:19436/railway',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'AxwMnRftocNhBzpandSnGJGddPfFsGKo',
-        'HOST': 'monorail.proxy.rlwy.net',  # Replace with your PostgreSQL server's address if necessary
-        'PORT': '19436',          # Leave empty to use the default PostgreSQL port (usually 5432)
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'URL': 'postgresql://postgres:AxwMnRftocNhBzpandSnGJGddPfFsGKo@monorail.proxy.rlwy.net:19436/railway',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'AxwMnRftocNhBzpandSnGJGddPfFsGKo',
+#         'HOST': 'monorail.proxy.rlwy.net',  # Replace with your PostgreSQL server's address if necessary
+#         'PORT': '19436',          # Leave empty to use the default PostgreSQL port (usually 5432)
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

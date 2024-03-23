@@ -54,26 +54,22 @@ def Signup(request):
 
 
 def Admin_Panel(request):
-    try:
-        login_or_signup_email = request.session['email']
-        admin_panel_auth = flag
-        if request.method == "POST":
-            data = request.POST
-            recipe_Name = data.get('recipe_name')
-            recipe_description = data.get('recipe_description')
-            recipe_Image = request.FILES.get('recipe_image')
-
-
-            print(recipe_Name, recipe_description, recipe_Image)
-            Admin_Panel_Db.objects.create(login_or_signup_email=login_or_signup_email, recipe_name=recipe_Name, recipe_dscription=recipe_description, recipe_image=recipe_Image)
-
-        all_Data = Admin_Panel_Db.objects.filter(login_or_signup_email=login_or_signup_email)
-        
-        context = {"all_Data":all_Data, "admin_panel_auth":admin_panel_auth, "flag":flag}
     
-        return render(request, "admin-panel.html", context)
-    except:
-        return HttpResponse("something wrong try again !")
+    login_or_signup_email = request.session['email']
+    admin_panel_auth = flag
+    if request.method == "POST":
+        data = request.POST
+        recipe_Name = data.get('recipe_name')
+        recipe_description = data.get('recipe_description')
+        recipe_Image = request.FILES.get('recipe_image')
+        print(recipe_Name, recipe_description, recipe_Image)
+        Admin_Panel_Db.objects.create(login_or_signup_email=login_or_signup_email, recipe_name=recipe_Name, recipe_dscription=recipe_description, recipe_image=recipe_Image)
+    all_Data = Admin_Panel_Db.objects.filter(login_or_signup_email=login_or_signup_email)
+    
+    context = {"all_Data":all_Data, "admin_panel_auth":admin_panel_auth, "flag":flag}
+
+    return render(request, "admin-panel.html", context)
+   
 
 def Delete(request, id):
     queryset = Admin_Panel_Db.objects.get(id = id)
